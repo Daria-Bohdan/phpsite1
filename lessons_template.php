@@ -22,24 +22,10 @@ $myrow = mysql_fetch_array($result);
 			<td><table width="690" border="0" cellpadding="0" cellspacing="0">
 					<tr>
 <!-- Подключаем левый блок сайта -->			
-<?php include ("blocks/lefttd.php"); ?>			
+<?php include ("blocks/lefttd.php") ?>			
 	<td valign="top">
-		<p><?php echo $myrow['text']; ?></p>
-
-<?php 
-$result = mysql_query("SELECT id,title,description,date FROM lessons",$db);
-$myrow = mysql_fetch_array($result);
-
-?>
-		<table align="center" class="lesson">
-			<tr>
-				<td class="lesson_title">$nbsp;</td>
-			</tr>
-			<tr>
-				<td>$nbsp;</td>
-			</tr>
-		</table>
-		<p>$nbsp;</p></td>
+		<?php echo $myrow['text']; ?>
+	</td>
 					</tr>
 				</table></td>	
 		</tr>
