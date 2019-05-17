@@ -1,6 +1,6 @@
 <?php
 include ("blocks/bd.php"); /*Соединяемся с БД */
-$result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='index'",$db);
+$result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='contacts'",$db);
 $myrow = mysql_fetch_array($result);
 ?>	
 

@@ -1,10 +1,11 @@
 <?php
+
 include ("blocks/bd.php"); /*Соединяемся с БД */
-$result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='index'",$db);
+$result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='lessons'",$db);
 $myrow = mysql_fetch_array($result);
 ?>	
 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta name="description" content="<?php echo $myrow['meta_d']; ?> ">
