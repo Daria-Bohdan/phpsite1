@@ -1,7 +1,7 @@
 <?php
 
 include ("blocks/bd.php"); /*Соединяемся с БД */
-$result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='lessons'",$db);
+$result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='articles'",$db);
 $myrow = mysql_fetch_array($result);
 ?>	
 
@@ -22,36 +22,10 @@ $myrow = mysql_fetch_array($result);
 			<td><table width="690" border="0" cellpadding="0" cellspacing="0">
 					<tr>
 <!-- Подключаем левый блок сайта -->			
-<?php include ("blocks/lefttd.php"); ?>			
+<?php include ("blocks/lefttd.php") ?>			
 	<td valign="top">
-		<p><?php echo $myrow['text']; ?></p>
-
-<?php 
-$result = mysql_query("SELECT id,title,description,author,date FROM lessons",$db);
-$myrow = mysql_fetch_array($result);
-
-do {
-
-	printf ("<table align='center' class='lesson'>
-
-			<tr>
-				<td class='lesson_title'>
-				<p class = 'lesson_name'><a href='view_lesson.php?id=%s'>%s</a></p>
-				<p class = 'lesson_adds '>Дата добавления: %s</p>
-				<p class = 'lesson_adds '>Автор урока:%s</p></td>
-			</tr>
-
-			<tr>
-				<td>%s</td>
-			</tr>
-
-		</table><br><br>", $myrow["id"], $myrow["title"],$myrow["date"], $myrow["author"], $myrow["description"]);
-
-}
-
-while ($myrow = mysql_fetch_array ($result));
-?>		
-		<p></p></td>
+		<?php echo $myrow['text']; ?>
+	</td>
 					</tr>
 				</table></td>	
 		</tr>

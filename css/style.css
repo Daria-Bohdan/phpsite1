@@ -81,6 +81,12 @@ border: 1px solid #cccccc;
 margin: 5px;
 }
 
-.lesson {border: 1px solid #cccccc; width: 95%;}
+.lesson {border: 1px solid #cccccc; width: 100%;}
 
 .lesson_title {background-color: #f6f6f6;}
+
+.lesson_name {font-weight: bold; margin: 7px;margin-bottom: 7px;}
+.lesson_adds {font-size: 11px; margin-top: 7px; margin-bottom: 7px; color: #424242;}
+
+.view_title {font-size: 16px; font-weight: bold; color: #cc0000; text-align: center;}
+.view_date {font-size: 11px; color: #424242; margin-top: 7px; margin-bottom: 7px; font-weight: bold;} 

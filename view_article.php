@@ -1,9 +1,16 @@
 <?php
 
 include ("blocks/bd.php"); /*Соединяемся с БД */
-$result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='lessons'",$db);
+
+if (isset ($_GET['id'])) {
+$id = $_GET['id'];
+
+}
+
+$result = mysql_query("SELECT * FROM articles WHERE id ='$id'",$db);
 $myrow = mysql_fetch_array($result);
 ?>	
+
 
  <!DOCTYPE html>
 <html lang="en">
@@ -24,33 +31,13 @@ $myrow = mysql_fetch_array($result);
 <!-- Подключаем левый блок сайта -->			
 <?php include ("blocks/lefttd.php"); ?>			
 	<td valign="top">
+		<p class="view_title"><?php echo $myrow['title']; ?></p>
+		<p class="view_date ">Дата добавления :<?php echo $myrow['date']; ?></p>
+		<p class="view_date ">Автор статьи:<?php echo $myrow['author']; ?></p>
+
+
 		<p><?php echo $myrow['text']; ?></p>
 
-<?php 
-$result = mysql_query("SELECT id,title,description,author,date FROM lessons",$db);
-$myrow = mysql_fetch_array($result);
-
-do {
-
-	printf ("<table align='center' class='lesson'>
-
-			<tr>
-				<td class='lesson_title'>
-				<p class = 'lesson_name'><a href='view_lesson.php?id=%s'>%s</a></p>
-				<p class = 'lesson_adds '>Дата добавления: %s</p>
-				<p class = 'lesson_adds '>Автор урока:%s</p></td>
-			</tr>
-
-			<tr>
-				<td>%s</td>
-			</tr>
-
-		</table><br><br>", $myrow["id"], $myrow["title"],$myrow["date"], $myrow["author"], $myrow["description"]);
-
-}
-
-while ($myrow = mysql_fetch_array ($result));
-?>		
 		<p></p></td>
 					</tr>
 				</table></td>	
