@@ -1,0 +1,92 @@
+.main_border {border: 1px solid #000000;}
+
+p {font-family: Verdana; font-size: 12px; margin: 15px;} /* отвечает за большой текст на станице*/
+
+
+.left {background-color:#f6f6f6;border-right: 1px solid #424242;}
+
+
+body {background-image: url(/img/bg.jpg)}
+
+
+
+p.title {
+	background-color: #A72E37;
+	color: #ffffff;
+	font-weight: bold;
+	margin: 5px;
+	padding: 5px;
+}
+
+#coolmenu {
+	border: 1px solid grey; /*стиль рамки*/
+	border-bottom-width: 0;
+	width: 93%; /* ширина меню*/
+	background-color: #f6f6f6; /*фоновый цвет ячейки*/
+	margin: 7px; /*ширина отступов*/
+}
+
+
+* html #coolmenu {
+	width: 150px; /* ширина меню для Internet Explorer*/
+}
+
+
+#coolmenu a{
+	font: bold 13px Verdana; /*шрифт текста*/
+	padding: 2px; /* внутренний отступ текста ссылки от краев ячейки*/
+	padding-left: 4px; /* внутренний отступ текста ссылки от левого края ячейки*/
+	display: block;
+	width: 100%; /*ширина ячейки*/
+	color: #000000; /* цвет текста*/
+	text-decoration: none;/* подчеркивания у сылок нет*/
+	border-bottom: 1px solid gray;
+}
+
+
+html>body #coolmenu a{
+	width: auto;
+}
+
+#coolmenu a:hover {
+	background-color: #cccccc; /*Фоновый цвет ячейки при наведении курсора*/
+	color: #000000; /*цвет текста при наведении курсора*/
+}
+
+
+p.title2 {
+	background-color: #C4C92F;
+	color: #ffffff;
+	font-weight: bold;
+	margin: 5px;
+	padding: 5px;
+}
+
+
+
+.form1 {
+	font-family: Verdana;
+	font-size: 10px;
+}
+
+
+.form3 {
+	font-family: Verdana;
+	font-size: 11px;
+}
+
+
+.formm {
+border: 1px solid #cccccc;
+margin: 5px;
+}
+
+.lesson {border: 1px solid #cccccc; width: 100%;}
+
+.lesson_title {background-color: #f6f6f6;}
+
+.lesson_name {font-weight: bold; margin: 7px;margin-bottom: 7px;}
+.lesson_adds {font-size: 11px; margin-top: 7px; margin-bottom: 7px; color: #424242;}
+
+.view_title {font-size: 16px; font-weight: bold; color: #cc0000; text-align: center;}
+.view_date {font-size: 11px; color: #424242; margin-top: 7px; margin-bottom: 7px; font-weight: bold;} 

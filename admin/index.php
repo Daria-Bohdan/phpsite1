@@ -1,17 +1,8 @@
-<?php
-
-include ("blocks/bd.php"); /*Соединяемся с БД */
-$result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='lessons'",$db);
-$myrow = mysql_fetch_array($result);
-?>	
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="description" content="<?php echo $myrow['meta_d']; ?> ">
-	<meta name="keywords" content="<?php echo $myrow['meta_k']; ?>">
 	<meta charset="UTF-8">
-	<title><?php echo $myrow['title']; ?> </title>
+	<title>Главная страница блока администратора </title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
 </head>
 <body>
@@ -24,7 +15,7 @@ $myrow = mysql_fetch_array($result);
 <!-- Подключаем левый блок сайта -->			
 <?php include ("blocks/lefttd.php") ?>			
 	<td valign="top">
-		<?php echo $myrow['text']; ?>
+		<p>Добро пожаловать в админский блок.</p>
 	</td>
 					</tr>
 				</table></td>	
