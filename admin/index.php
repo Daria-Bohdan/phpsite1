@@ -13,7 +13,7 @@
 			<td><table width="690" border="0" cellpadding="0" cellspacing="0">
 					<tr>
 <!-- Подключаем левый блок сайта -->			
-<?php include ("blocks/lefttd.php") ?>			
+<?php include ("blocks/lefttd.php"); ?>			
 	<td valign="top">
 		<p>Добро пожаловать в админский блок.</p>
 	</td>

@@ -19,6 +19,7 @@ if (isset ($_POST ['date'])) 		{$date = $_POST ['date'];     if ($date == '') {u
 if (isset ($_POST ['description'])) {$description= $_POST ['description']; if ($description == '') {unset ($description);}}
 if (isset ($_POST ['text'])) 		{$text = $_POST ['text'];     if ($text == '') {unset ($text);}}
 if (isset ($_POST ['author']))		{$author = $_POST ['author'];  if ($author == '') {unset ($author);}}
+if (isset ($_POST ['id']))		    {$id= $_POST ['id'];}
 
 
 ?>
@@ -39,7 +40,7 @@ if (isset ($_POST ['author']))		{$author = $_POST ['author'];  if ($author == ''
 			<td><table width="690" border="0" cellpadding="0" cellspacing="0">
 					<tr>
 <!-- Подключаем левый блок сайта -->			
-<?php include ("blocks/lefttd.php"); ?>			
+<?php include ("blocks/lefttd.php") ?>			
 	<td valign="top">
 
 <?php 
@@ -48,27 +49,33 @@ if (isset ($title) && isset ($meta_d) && isset ($meta_k) && isset ($date) && iss
  {
 /* Здесь пишем что можно заносить информацию в базу */
 
-$result = mysql_query ("INSERT INTO lessons (title, meta_d, meta_k, date, description, text, author) VALUES ('$title', '$meta_d', '$meta_k', '$date', '$description', '$text', '$author') ");
+$result = mysql_query ("UPDATE lessons SET title='$title', meta_d='$meta_d',meta_k='$meta_k', date='$date', description='$description', text='$text', author='$author' WHERE id='$id'");
+
+/*Проверки на ошибки запросов MYSQL
+echo mysql_errno() . ": " . mysql_error(). "\n";*/ 
 
 if ($result == 'true')
- {echo "<p>Ваш урок успешно добавлен</p>";
+ {echo "<p>Ваш урок успешно обновлен</p>";
 }else {
-echo "<p>Ваш урок не добавлен !</p>";
+echo "<p>Ваш урок не обновлен !</p>";
 }
 
 
 
+
+
+
 } else {
-	echo "<p>Вы ввели не всю информацию, поэтому урок в базу не может быть добавлен. </p>";
+	echo "<p>Вы ввели не всю информацию, поэтому урок в базу не может быть обновлен. </p>";
 }
 
 
 ?>
 	</td>
+					</tr>
+					</table>
+			</td>	
 		</tr>
-			</table>
-	</td>	
-</tr>
  <!-- Подключаем нижний графический элемент (footer)сайта -->
 <?php include ("blocks/footer.php");?>		
 		

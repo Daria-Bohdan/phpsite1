@@ -1,3 +1,12 @@
+<?php
+	include ("blocks/bd.php");
+
+
+	if (isset ($_GET['id'])) {$id = $_GET['id'];}
+
+?>	
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,52 +22,83 @@
 			<td><table width="690" border="0" cellpadding="0" cellspacing="0">
 					<tr>
 <!-- Подключаем левый блок сайта -->			
-<?php include ("blocks/lefttd.php") ?>			
+<?php include ("blocks/lefttd.php"); ?>			
 	<td valign="top">
-		<form name="forml" method="post" action="add_lesson.php">
+<?php
+
+
+if (!isset ($id))
+{
+		$result = mysql_query("SELECT `title`, `id` FROM `lessons`", $db);
+		$myrow = mysql_fetch_array($result);
+
+
+do 
+{
+printf ("<p><a href='edit_lesson.php?id=%s'>%s</a></p>", $myrow["id"], $myrow["title"]);
+}
+
+while (	$myrow = mysql_fetch_array($result));
+
+}else{
+
+	$result = mysql_query("SELECT * FROM lessons WHERE 'id'='$id'", $db);
+/*echo mysql_errno() . ": " . mysql_error(). "\n";*/
+	$myrow = mysql_fetch_array($result);
+/*echo mysql_errno() . ": " . mysql_error(). "\n";*/
+
+
+print <<<HERE
+
+<form name="forml" method="post" action="update_lesson.php">
 			<p>
 				<label>Введите название урока<br>
-					<input type="text" name="title" id="title">
+					<input value="$myrow[title]" type="text" name="title" id="title">
 				</label>
 			</p>
 				<p>
 					<label>Введите краткое описание урока<br>
-						<input type="text" name="meta_d" id="meta_d">
+						<input value="$myrow[meta_d]" type="text" name="meta_d" id="meta_d">
 					</label>
 				</p>
 					<p>
 						<label>Введите ключевые слова<br>
-							<input type="text" name="meta_k" id="meta_k">
+							<input value="$myrow[meta_k]" type="text" name="meta_k" id="meta_k">
 						</label>
 					</p>
 						<p>
 						<label>Введите дату добавления урока<br>
-								<input name="date" type="text" id="date" value="2019-05-18">
+								<input value="$myrow[date]" name="date" type="text" id="date" value="2019-05-18">
 							</label>
 						</p>
 							<p>
 							<label>Введите краткое описание урока с тегами абзацев<br>
-								<textarea name="description" id="description" cols="40" rows="5"></textarea>
+								<textarea name="description" id="description" cols="40" rows="5">$myrow[description]</textarea>
 							</label>
 						</p>
 								<p>
 							<label>Введите полный текст урока с тегами
-								<textarea name="text" id="text" cols="40" rows="20"></textarea> 
+								<textarea name="text" id="text" cols="40" rows="20">$myrow[text]</textarea> 
 							</label>
 						</p>
 						<p>		
 							<p>
 								<label>Введите автора урока<br>
-									<input type="text" name="author" id="author">
+									<input value="$myrow[author]" type="text" name="author" id="author">
 								</label>
 							</p>
+
+							<input name="id" type="hidden" value="$myrow[id]">
 							<p>
 								<label>
-									<input type="submit" name="submit" id="submit" value="Занести урок в базу">
+									<input type="submit" name="submit" id="submit" value="Сохранить изменения">
 								</label>
 							</p>
 						</form>
-						<p></p>
+HERE;
+}
+
+?>		
 					</td>
 						</tr>
 					</table></td>	
