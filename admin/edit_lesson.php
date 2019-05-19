@@ -28,6 +28,7 @@
 
 
 if (!isset ($id))
+
 {
 		$result = mysql_query("SELECT `title`, `id` FROM `lessons`", $db);
 		$myrow = mysql_fetch_array($result);
@@ -42,7 +43,7 @@ while (	$myrow = mysql_fetch_array($result));
 
 }else{
 
-	$result = mysql_query("SELECT * FROM lessons WHERE 'id'='$id'", $db);
+	$result = mysql_query("SELECT * FROM lessons WHERE id=" . $_GET['id']);
 /*echo mysql_errno() . ": " . mysql_error(). "\n";*/
 	$myrow = mysql_fetch_array($result);
 /*echo mysql_errno() . ": " . mysql_error(). "\n";*/
@@ -53,7 +54,7 @@ print <<<HERE
 <form name="forml" method="post" action="update_lesson.php">
 			<p>
 				<label>Введите название урока<br>
-					<input value="$myrow[title]" type="text" name="title" id="title">
+					<input value=$myrow[title] type="text" name="title" id="title">
 				</label>
 			</p>
 				<p>
