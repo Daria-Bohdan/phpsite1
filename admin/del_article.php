@@ -21,7 +21,7 @@
 <?php include ("blocks/lefttd.php"); ?>			
 	<td valign="top">
 
-<p>Выберите статью для удаления:</p>
+<p><strong>Выберите статью для удаления:</strong></p>
 
 <form action="drop_article.php" method="post">
 

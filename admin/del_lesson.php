@@ -21,7 +21,7 @@
 <?php include ("blocks/lefttd.php"); ?>			
 	<td valign="top">
 
-<p>Выберите урок для удаления:</p>
+<p><strong>Выберите урок для удаления:</strong></p>
 
 <form action="drop_lesson.php" method="post">
 

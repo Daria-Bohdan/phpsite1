@@ -15,6 +15,6 @@
 
 		<p align="center" class="title">Тексты</p>
 		<div id="coolmenu">
-			<a href="/articles.php">Редактировать</a>
+			<a href="/admin/edit_text.php">Редактировать</a>
 		</div>
 </td>
