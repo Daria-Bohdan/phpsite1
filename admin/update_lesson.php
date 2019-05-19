@@ -19,11 +19,9 @@ if (isset ($_POST ['date'])) 		{$date = $_POST ['date'];     if ($date == '') {u
 if (isset ($_POST ['description'])) {$description= $_POST ['description']; if ($description == '') {unset ($description);}}
 if (isset ($_POST ['text'])) 		{$text = $_POST ['text'];     if ($text == '') {unset ($text);}}
 if (isset ($_POST ['author']))		{$author = $_POST ['author'];  if ($author == '') {unset ($author);}}
-if (isset ($_POST ['id']))		    {$id= $_POST ['id'];}
-
+if (isset ($_POST ['id']))		    {$id = $_POST ['id'];}
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,15 +58,9 @@ if ($result == 'true')
 echo "<p>Ваш урок не обновлен !</p>";
 }
 
-
-
-
-
-
 } else {
 	echo "<p>Вы ввели не всю информацию, поэтому урок в базу не может быть обновлен. </p>";
 }
-
 
 ?>
 	</td>

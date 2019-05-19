@@ -3,7 +3,7 @@
 		<div id="coolmenu">
 			<a href="/admin/new_lesson.php">Добавить </a>
 			<a href="/admin/edit_lesson.php">Редактировать</a>
-			<a href="/lessons.php">Удалить</a>
+			<a href="/admin/del_lesson.php">Удалить</a>
 		</div>
 
 	<p align="center" class="title">Статьи</p>
